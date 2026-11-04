@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的网站 - 首页</title>
+    <style>
+        /* ===== 重置默认样式 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== 导航栏 ===== */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo { font-size: 24px; font-weight: bold; color: #2563eb; }
+        nav ul { display: flex; gap: 30px; }
+        nav ul li a { transition: color 0.3s; }
+        nav ul li a:hover { color: #2563eb; }
+
+        /* ===== 首屏 Hero ===== */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff; padding: 0 20px;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
+        .hero .btn {
+            display: inline-block; padding: 12px 40px;
+            background: #fff; color: #2563eb; border-radius: 30px;
+            font-weight: bold; transition: transform 0.3s;
+        }
+        .hero .btn:hover { transform: scale(1.05); }
+
+        /* ===== 通用区块 ===== */
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 50px; }
+        .section-title::after {
+            content: ""; display: block; width: 60px; height: 3px;
+            background: #2563eb; margin: 15px auto;
+        }
+
+        /* ===== 服务卡片 ===== */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card {
+            background: #f8f9fa; border-radius: 12px; padding: 30px;
+            text-align: center; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .card .icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { margin-bottom: 10px; }
+        .card p { color: #666; }
+
+        /* ===== 项目展示 ===== */
+        .projects { background: #f8f9fa; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-item {
+            background: #fff; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s;
+        }
+        .project-item:hover { transform: translateY(-5px); }
+        .project-item .img {
+            height: 200px; background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 24px;
+        }
+        .project-item .info { padding: 20px; }
+        .project-item .info h3 { margin-bottom: 8px; }
+        .project-item .info p { color: #666; font-size: 14px; }
+
+        /* ===== 联系表单 ===== */
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px;
+            border: 1px solid #ddd; border-radius: 8px; font-size: 16px;
+        }
+        .contact-form textarea { height: 120px; resize: vertical; }
+        .contact-form button {
+            width: 100%; padding: 12px; background: #2563eb;
+            color: #fff; border: none; border-radius: 8px;
+            font-size: 16px; cursor: pointer; transition: background 0.3s;
+        }
+        .contact-form button:hover { background: #1d4ed8; }
+
+        /* ===== 页脚 ===== */
+        footer {
+            background: #1a1a2e; color: #aaa; text-align: center;
+            padding: 30px 5%; font-size: 14px;
+        }
+
+        /* ===== 手机适配 ===== */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav>
+    <div class="logo">MySite</div>
+    <ul>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#services">服务</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#contact">联系</a></li>
+    </ul>
+</nav>
+
+<!-- 首屏 -->
+<section class="hero" id="home">
+    <h1>欢迎来到我的网站</h1>
+    <p>专注于网站开发与设计，用代码创造价值</p>
+    <a href="#contact" class="btn">联系我们</a>
+</section>
+
+<!-- 服务介绍 -->
+<section id="services">
+    <h2 class="section-title">我们的服务</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>网站开发</h3>
+            <p>响应式企业官网、个人主页、电商平台，全栈开发一条龙</p>
+        </div>
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>小程序开发</h3>
+            <p>微信小程序、支付宝小程序，从设计到上线全程跟进</p>
+        </div>
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>UI 设计</h3>
+            <p>网站视觉设计、交互设计，让你的产品更好看更好用</p>
+        </div>
+    </div>
+</section>
+
+<!-- 项目展示 -->
+<section class="projects" id="projects">
+    <h2 class="section-title">精选项目</h2>
+    <div class="project-grid">
+        <div class="project-item">
+            <div class="img">项目一</div>
+            <div class="info">
+                <h3>企业官网</h3>
+                <p>某科技公司官网，响应式设计，适配手机/平板/电脑</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <div class="img">项目二</div>
+            <div class="info">
+                <h3>电商小程序</h3>
+                <p>微信商城小程序，含购物车、支付、订单管理</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <div class="img">项目三</div>
+            <div class="info">
+                <h3>个人博客</h3>
+                <p>技术博客系统，支持 Markdown 写作、评论、标签分类</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact">
+    <h2 class="section-title">联系我们</h2>
+    <div class="contact-form">
+        <input type="text" placeholder="你的名字">
+        <input type="email" placeholder="你的邮箱">
+        <textarea placeholder="留言内容..."></textarea>
+        <button onclick="alert('留言已提交！')">提交留言</button>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+    <p>&copy; 2026 MySite. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
